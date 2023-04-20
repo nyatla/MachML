@@ -21,7 +21,6 @@
             }
             if(langs.length==0){
                 this.innerText="";
-                console.log("MLText has not attribute(s)");
             }else{
                 //言語の決定
                 let lidx=langs.indexOf(lang);
@@ -90,7 +89,6 @@
                     langs.splice(i,1);
                 }
             }
-            console.log(display);
             //タグリストにあってキャッシュにないものを追加
             for (let i = 0; i < current.length; i++) {
                 let has=false;
@@ -103,10 +101,8 @@
                     cache.push(current[i]);
                     display.push('');//初期値が取れないことがあるので''とする。
                     langs.push(current[i].attributes["data-lang"].value);
-                    console.log("add");
                 }
             }
-            console.log(display);
             //言語を取得
             let lang = lang_text;
             if(cache.length<=1){//1個ならなんもしない
@@ -123,7 +119,6 @@
             for(let i=0;i<cache.length;i++){
                 cache[i].style.display = i==lidx?display[i]:"none";
             }
-            console.log(cache,current)
 
         }
     }
