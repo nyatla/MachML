@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <script src="../src/machml.min.tile.js"></script>
+	</head>
+	<body>
+        <h1>
+            <ml-text
+                en="This is English"
+                ja="日本語です"
+                ja-kyoto="京都どすえ"
+                neko="にゃーん"
+            ></ml-text>
+        </h1>
+        <hr/>
+        <ml-block >
+            <p data-lang="en">
+                The language is specified by language-locale, and the default value is based on the browser's settings.
+                The <i>ml-text</i> tag displays language-specific text as an attribute.
+                The <i>ml-block</i> tag defines an element with attributes for language-specific text, and HTML can be written inside. The first matching element will be displayed.                    
+                The language selection rule is based on a complete match of language and locale, followed by matching language, and finally the language defined at the beginning.
+            </p>
+            <p data-lang="ja">
+                表示言語は、言語-ロケールで指定します。初期値はブラウザの規定値です。</br>
+                <i>ml-text</i>タグは言語毎のテキストを属性にして表示します。</br>
+                <i>ml-block</i>タグは言語毎のテキストを属性に持つ要素を定義します。ここにはhtmlが書けます。一番初めに一致した要素が表示されます。</br>
+                言語の選択ルールは、言語とロケールが完全に一致するもの→言語が一致するもの→先頭に定義されている言語です。
+            </p>
+            <span data-lang="neko">にゃにゃにゃにゃーん、<span style="font-size: 2em;">にゃーん</span>にゃにゃにゃにゃーん</span>                
+        </ml-block>
+        <div>
+            <div><ml-text en="Select Langurge" en-us="SELECT LAAAAANGURGE!!" ja-kyoto="言語切替ボタンどす" ja="言語選択ボタン"></ml-text></div>
+            <button onclick="MachML.setLocale('ja')">ja</button>
+            <button onclick="MachML.setLocale('en')">en</button>
+            <button onclick="MachML.setLocale('en-us')">en-us</button>
+            <button onclick="MachML.setLocale('neko')">neko</button>
+            <button onclick="MachML.setLocale('ja-kyoto')">ja-kyoto</button>
+        </div>
+
+        <div>
+            <ml-block >
+                <p data-lang="en">
+                    If implementing a button is troublesome, you can use the <i>ml-select</i> tag.
+                    This tag replaces the tag with a simple selection selector like this.
+                </p>
+                <p data-lang="ja">
+                    ボタンの実装が面倒な場合は<i>ml-select</i>タグを使いましょう。<br/>このタグはこのようにタグを簡易選択セレクタに置き換えます。
+                </p>
+            </ml-block>
+            <ml-select langs="en ja-jp ja-kyoto neko"></ml-select>
+        </div>
+	</body>
+</html>
